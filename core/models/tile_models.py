@@ -6,12 +6,12 @@ from pygame.display import update
 from pygame.time import Clock
 import os
 
-TILES_PATH = "C:\\Users\\tanner.martin\\Desktop\\test-game\\resources\\Tiles"
+
 tile_images: dict[str, Surface] = dict()
 
-for image_name in os.listdir(TILES_PATH):
+for image_name in os.listdir(TILES_DIR):
     try:
-        tile_images.update({image_name: load(os.path.join(TILES_PATH, image_name))})
+        tile_images.update({image_name: load(os.path.join(TILES_DIR, image_name))})
     except:
         ...
 
@@ -45,35 +45,56 @@ class Plank:
     def image_objects(self):
         return [tile_images.get(i) for i in self.image_names]
     
+    def get_window_width(self):
+        return self.window.get_size()[0]
+    
+    def should_change_x_velocity(self, x:int|float, w:int|float):
+        return x < 0 or x+w > self.get_window_width()
+    
+    def change_x_velocity(self):
+        self.x_velocity *= -1
+    
     @property
     def image_rects(self):
-        change_x_velocity = False
         x, y = self.x, self.y
-        ww = self.window.get_size()[0]
         return_rects:list[Rect] = []
+
         for image in self.image_objects:
             w, h = image.get_size()
             return_rects.append(Rect(x, y, w, h))
-            if x < 0 or x+w > ww:
-                change_x_velocity = True
+            if self.should_change_x_velocity(x, w):
+                self.change_x_velocity()
             x += w
-        if change_x_velocity:
-            self.x_velocity *= -1
+
         return return_rects
+    
+    @property
+    def image_objects_and_rects(self):
+        x, y = self.x, self.y
+        return_objects_and_rects:list[tuple[Surface, Rect]] = []
+
+        for image_object in self.image_objects:
+            w, h = image_object.get_size()
+            return_objects_and_rects.append((image_object, Rect(x, y, w, h)))
+            if self.should_change_x_velocity(x, w):
+                self.change_x_velocity()
+            x += w
+
+        return return_objects_and_rects
     
     def move(self):
         self.x += self.x_velocity
 
     def draw(self):
         big_rect = Rect(self.x-10, self.y-10, 20, 20)
-        for image_obj, image_rect in list(zip(self.image_objects, self.image_rects)):
+        for image_obj, image_rect in self.image_objects_and_rects:
             self.window.blit(image_obj, image_rect)
             big_rect.width += image_rect.width
             big_rect.height = image_rect.height + 20
         return big_rect
 
-    def collision_box(self):
-        ...
+    def collision_boxes(self):
+        return self.image_rects
 
 
 class PlankImageModel(BaseModel):
