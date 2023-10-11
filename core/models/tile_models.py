@@ -5,7 +5,9 @@ from pygame import Surface, surface, Rect
 from pygame.display import update
 from pygame.time import Clock
 import os
+from random import randint, choice
 
+from core.constants import TILES_DIR
 
 tile_images: dict[str, Surface] = dict()
 
@@ -116,39 +118,3 @@ class PlankImageModel(BaseModel):
             self.size_list = [i for i in self.big]
         self.image_names = [self.type_1 + i + ".png" for i in self.size_list]
         return self
-
-
-if __name__ == "__main__":
-    import pygame
-    def events():
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    pygame.quit()
-                    return False
-        return True
-    pygame.init()
-    window = pygame.display.set_mode((1300, 750))
-    running = True
-    planks:list[Plank] = []
-    from random import choice, randint
-    for i in range(50):
-        st = choice(["castle", "dirt", "grass", "sand", "snow", "stone"])
-        s = choice(["small", "big", "medium"])
-        rx = randint(0, 700)
-        ry = randint(0, 700)
-        planks.append(Plank(surface_type=st, size=s, window=window, x=rx, y=ry))
-    clock = Clock()
-    while running:
-        window.fill((0, 0, 0))
-        bgs:list[Rect] = []
-        for plank in planks:
-            plank.move()
-            br = plank.draw()
-            bgs.append(br)
-        update(bgs)
-        
-        running = events()
-        clock.tick(60)
-        
-

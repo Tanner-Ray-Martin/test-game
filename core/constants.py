@@ -10,7 +10,7 @@ SPLIT_CORE_DIR = CORE_DIR.split(os.sep)
 
 SPLIT_GAME_DIR = SPLIT_CORE_DIR[:-2]
 
-GAME_DIR = os.path.join(SPLIT_GAME_DIR)
+GAME_DIR = os.sep.join(SPLIT_GAME_DIR)
 
 RESOURCE_DIR = os.path.join(GAME_DIR, "resources")
 
