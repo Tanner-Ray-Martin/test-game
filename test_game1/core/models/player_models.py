@@ -22,7 +22,7 @@ class Plank:
         size: Literal["small", "medium", "big"],
         window: Surface,
         x:int = 0,
-        y:int = 0
+        y:int = 0sssssssssssssssssss
     ):
         self.x = x
         self.y = y
