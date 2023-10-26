@@ -12,26 +12,38 @@ PRE_POST_SEPERATOR = ""
 
 class Cloud:
     def __init__(self, x:int):
-        self.velocity = randint(1, 3)
+        self.velocity = 1
         self.velocity_counter = uniform(0.01, 0.99)
         self.image = generate_cloud_image()
         flipped = choice([True, False])
         if flipped:
             self.image = pygame.transform.flip(self.image, True, False)
-        y = randint(0, 300)
+        y = randint(0, 400)
         w = self.image.get_width()
         h = self.image.get_height()
         self.rect = pygame.Rect(x, y, w, h)
+        self.random_y()
 
     def move(self, ww):
-        self.velocity_counter += 0.1
-        if self.velocity_counter > 1:
-            self.velocity_counter = 0
-            self.rect.x += 2
+        self.rect.x += self.velocity
         if self.velocity > 0 and self.rect.left >= ww:
             self.rect.right = -10
+            self.random_y()
         elif self.velocity < 0 and self.rect.right <= 0:
             self.rect.left = ww +10
+            self.random_y()
+    def random_y(self):
+        self.rect.y = randint(0, 500)
+        if self.rect.y < 500:
+            self.velocity = 5
+        if self.rect.y < 400:
+            self.velocity = 4
+        if self.rect.y < 300:
+            self.velocity = 3
+        if self.rect.y < 200:
+            self.velocity = 2
+        if self.rect.y < 200:
+            self.velocity = 1
 
     def update(self, surface:pygame.surface.Surface):
         surface.blit(self.image, self.rect)
