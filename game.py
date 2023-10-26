@@ -13,16 +13,21 @@ if __name__ == "__main__":
                     return False
         return True
     pygame.init()
-    window = pygame.display.set_mode((1300, 750))
+    WH = 750
+    window = pygame.display.set_mode((1300, WH))
     running = True
     planks:list[Plank] = []
     from random import choice, randint
-    for i in range(50):
+    plank_y = 600
+    num_planks = 5
+    plank_y_space = int((WH-200)/num_planks)
+    for i in range(num_planks):
         st = choice(["castle", "dirt", "grass", "sand", "snow", "stone"])
         s = choice(["small", "big", "medium"])
         rx = randint(0, 700)
-        ry = randint(0, 700)
-        planks.append(Plank(surface_type=st, size=s, window=window, x=rx, y=ry))
+        planks.append(Plank(surface_type=st, size=s, window=window, x=rx, y=plank_y))
+        plank_y -= plank_y_space
+
     clock = Clock()
     while running:
         window.fill((0, 0, 0))

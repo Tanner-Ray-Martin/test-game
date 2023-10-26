@@ -29,7 +29,9 @@ class Plank:
     ):
         self.x = x
         self.y = y
-        self.x_velocity = randint(-10, 10)
+        self.x_velocity = 0
+        while self.x_velocity == 0:
+            self.x_velocity = randint(-3, 3)
         self.window = window
         self.size = size
         self.surface_type = surface_type

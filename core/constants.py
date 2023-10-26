@@ -15,3 +15,5 @@ GAME_DIR = os.sep.join(SPLIT_GAME_DIR)
 RESOURCE_DIR = os.path.join(GAME_DIR, "resources")
 
 TILES_DIR = os.path.join(RESOURCE_DIR, "Tiles")
+
+PLAYERS_DIR = os.path.join(RESOURCE_DIR, "Player")
