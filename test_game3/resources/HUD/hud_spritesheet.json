@@ -1,0 +1,200 @@
+{
+    "hud_0.png": {
+        "height": "38",
+        "width": "30",
+        "x": "230",
+        "y": "0"
+    },
+    "hud_1.png": {
+        "height": "37",
+        "width": "26",
+        "x": "196",
+        "y": "41"
+    },
+    "hud_2.png": {
+        "height": "38",
+        "width": "32",
+        "x": "55",
+        "y": "98"
+    },
+    "hud_3.png": {
+        "height": "38",
+        "width": "28",
+        "x": "239",
+        "y": "80"
+    },
+    "hud_4.png": {
+        "height": "38",
+        "width": "29",
+        "x": "238",
+        "y": "122"
+    },
+    "hud_5.png": {
+        "height": "38",
+        "width": "28",
+        "x": "238",
+        "y": "162"
+    },
+    "hud_6.png": {
+        "height": "38",
+        "width": "30",
+        "x": "230",
+        "y": "40"
+    },
+    "hud_7.png": {
+        "height": "39",
+        "width": "32",
+        "x": "226",
+        "y": "206"
+    },
+    "hud_8.png": {
+        "height": "40",
+        "width": "32",
+        "x": "192",
+        "y": "206"
+    },
+    "hud_9.png": {
+        "height": "39",
+        "width": "32",
+        "x": "196",
+        "y": "0"
+    },
+    "hud_coins.png": {
+        "height": "47",
+        "width": "47",
+        "x": "55",
+        "y": "0"
+    },
+    "hud_gem_blue.png": {
+        "height": "36",
+        "width": "46",
+        "x": "104",
+        "y": "0"
+    },
+    "hud_gem_green.png": {
+        "height": "36",
+        "width": "46",
+        "x": "98",
+        "y": "185"
+    },
+    "hud_gem_red.png": {
+        "height": "36",
+        "width": "46",
+        "x": "98",
+        "y": "147"
+    },
+    "hud_gem_yellow.png": {
+        "height": "36",
+        "width": "46",
+        "x": "98",
+        "y": "223"
+    },
+    "hud_heartEmpty.png": {
+        "height": "45",
+        "width": "53",
+        "x": "0",
+        "y": "47"
+    },
+    "hud_heartFull.png": {
+        "height": "45",
+        "width": "53",
+        "x": "0",
+        "y": "94"
+    },
+    "hud_heartHalf.png": {
+        "height": "45",
+        "width": "53",
+        "x": "0",
+        "y": "0"
+    },
+    "hud_keyBlue.png": {
+        "height": "40",
+        "width": "44",
+        "x": "146",
+        "y": "147"
+    },
+    "hud_keyBlue_disabled.png": {
+        "height": "40",
+        "width": "44",
+        "x": "150",
+        "y": "38"
+    },
+    "hud_keyGreem_disabled.png": {
+        "height": "40",
+        "width": "44",
+        "x": "104",
+        "y": "38"
+    },
+    "hud_keyGreen.png": {
+        "height": "40",
+        "width": "44",
+        "x": "192",
+        "y": "122"
+    },
+    "hud_keyRed.png": {
+        "height": "40",
+        "width": "44",
+        "x": "193",
+        "y": "80"
+    },
+    "hud_keyRed_disabled.png": {
+        "height": "40",
+        "width": "44",
+        "x": "192",
+        "y": "164"
+    },
+    "hud_keyYellow.png": {
+        "height": "40",
+        "width": "44",
+        "x": "146",
+        "y": "189"
+    },
+    "hud_keyYellow_disabled.png": {
+        "height": "40",
+        "width": "44",
+        "x": "147",
+        "y": "80"
+    },
+    "hud_p1.png": {
+        "height": "47",
+        "width": "47",
+        "x": "55",
+        "y": "49"
+    },
+    "hud_p1Alt.png": {
+        "height": "47",
+        "width": "47",
+        "x": "0",
+        "y": "141"
+    },
+    "hud_p2.png": {
+        "height": "47",
+        "width": "47",
+        "x": "49",
+        "y": "141"
+    },
+    "hud_p2Alt.png": {
+        "height": "47",
+        "width": "47",
+        "x": "0",
+        "y": "190"
+    },
+    "hud_p3.png": {
+        "height": "47",
+        "width": "47",
+        "x": "49",
+        "y": "190"
+    },
+    "hud_p3Alt.png": {
+        "height": "47",
+        "width": "47",
+        "x": "98",
+        "y": "98"
+    },
+    "hud_x.png": {
+        "height": "28",
+        "width": "30",
+        "x": "0",
+        "y": "239"
+    }
+}

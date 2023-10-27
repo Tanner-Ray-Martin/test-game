@@ -1,0 +1,398 @@
+{
+    "blockerBody": {
+        "height": 51,
+        "width": 51,
+        "x": 203,
+        "y": 0
+    },
+    "blockerMad": {
+        "height": 51,
+        "width": 51,
+        "x": 136,
+        "y": 66
+    },
+    "blockerSad": {
+        "height": 51,
+        "width": 51,
+        "x": 188,
+        "y": 66
+    },
+    "fishDead": {
+        "height": 42,
+        "width": 66,
+        "x": 0,
+        "y": 69
+    },
+    "fishSwim1": {
+        "height": 42,
+        "width": 66,
+        "x": 76,
+        "y": 0
+    },
+    "fishSwim2": {
+        "height": 43,
+        "width": 62,
+        "x": 73,
+        "y": 43
+    },
+    "flyDead": {
+        "height": 33,
+        "width": 59,
+        "x": 143,
+        "y": 0
+    },
+    "flyFly1": {
+        "height": 36,
+        "width": 72,
+        "x": 0,
+        "y": 32
+    },
+    "flyFly2": {
+        "height": 31,
+        "width": 75,
+        "x": 0,
+        "y": 0
+    },
+    "p1_duck": {
+        "height": 71,
+        "width": 69,
+        "x": 365,
+        "y": 98
+    },
+    "p1_front": {
+        "height": 92,
+        "width": 66,
+        "x": 0,
+        "y": 196
+    },
+    "p1_hurt": {
+        "height": 92,
+        "width": 69,
+        "x": 438,
+        "y": 0
+    },
+    "p1_jump": {
+        "height": 94,
+        "width": 67,
+        "x": 438,
+        "y": 93
+    },
+    "p1_stand": {
+        "height": 92,
+        "width": 66,
+        "x": 67,
+        "y": 196
+    },
+    "p1_walk01": {
+        "height": 97,
+        "width": 72,
+        "x": 0,
+        "y": 0
+    },
+    "p1_walk02": {
+        "height": 97,
+        "width": 72,
+        "x": 73,
+        "y": 0
+    },
+    "p1_walk03": {
+        "height": 97,
+        "width": 72,
+        "x": 146,
+        "y": 0
+    },
+    "p1_walk04": {
+        "height": 97,
+        "width": 72,
+        "x": 0,
+        "y": 98
+    },
+    "p1_walk05": {
+        "height": 97,
+        "width": 72,
+        "x": 73,
+        "y": 98
+    },
+    "p1_walk06": {
+        "height": 97,
+        "width": 72,
+        "x": 146,
+        "y": 98
+    },
+    "p1_walk07": {
+        "height": 97,
+        "width": 72,
+        "x": 219,
+        "y": 0
+    },
+    "p1_walk08": {
+        "height": 97,
+        "width": 72,
+        "x": 292,
+        "y": 0
+    },
+    "p1_walk09": {
+        "height": 97,
+        "width": 72,
+        "x": 219,
+        "y": 98
+    },
+    "p1_walk10": {
+        "height": 97,
+        "width": 72,
+        "x": 365,
+        "y": 0
+    },
+    "p1_walk11": {
+        "height": 97,
+        "width": 72,
+        "x": 292,
+        "y": 98
+    },
+    "p2_duck": {
+        "height": 72,
+        "width": 67,
+        "x": 355,
+        "y": 95
+    },
+    "p2_front": {
+        "height": 92,
+        "width": 66,
+        "x": 0,
+        "y": 190
+    },
+    "p2_hurt": {
+        "height": 92,
+        "width": 67,
+        "x": 426,
+        "y": 0
+    },
+    "p2_jump": {
+        "height": 94,
+        "width": 66,
+        "x": 423,
+        "y": 95
+    },
+    "p2_stand": {
+        "height": 92,
+        "width": 66,
+        "x": 67,
+        "y": 190
+    },
+    "p2_walk01": {
+        "height": 94,
+        "width": 70,
+        "x": 0,
+        "y": 0
+    },
+    "p2_walk02": {
+        "height": 94,
+        "width": 70,
+        "x": 71,
+        "y": 0
+    },
+    "p2_walk03": {
+        "height": 94,
+        "width": 70,
+        "x": 142,
+        "y": 0
+    },
+    "p2_walk04": {
+        "height": 94,
+        "width": 70,
+        "x": 0,
+        "y": 95
+    },
+    "p2_walk05": {
+        "height": 94,
+        "width": 70,
+        "x": 71,
+        "y": 95
+    },
+    "p2_walk06": {
+        "height": 94,
+        "width": 70,
+        "x": 142,
+        "y": 95
+    },
+    "p2_walk07": {
+        "height": 94,
+        "width": 70,
+        "x": 213,
+        "y": 0
+    },
+    "p2_walk08": {
+        "height": 94,
+        "width": 70,
+        "x": 284,
+        "y": 0
+    },
+    "p2_walk09": {
+        "height": 94,
+        "width": 70,
+        "x": 213,
+        "y": 95
+    },
+    "p2_walk10": {
+        "height": 94,
+        "width": 70,
+        "x": 355,
+        "y": 0
+    },
+    "p2_walk11": {
+        "height": 94,
+        "width": 70,
+        "x": 284,
+        "y": 95
+    },
+    "p3_duck": {
+        "height": 71,
+        "width": 69,
+        "x": 365,
+        "y": 98
+    },
+    "p3_front": {
+        "height": 92,
+        "width": 66,
+        "x": 0,
+        "y": 196
+    },
+    "p3_hurt": {
+        "height": 92,
+        "width": 69,
+        "x": 438,
+        "y": 0
+    },
+    "p3_jump": {
+        "height": 94,
+        "width": 67,
+        "x": 438,
+        "y": 93
+    },
+    "p3_stand": {
+        "height": 92,
+        "width": 66,
+        "x": 67,
+        "y": 196
+    },
+    "p3_walk01": {
+        "height": 97,
+        "width": 72,
+        "x": 0,
+        "y": 0
+    },
+    "p3_walk02": {
+        "height": 97,
+        "width": 72,
+        "x": 73,
+        "y": 0
+    },
+    "p3_walk03": {
+        "height": 97,
+        "width": 72,
+        "x": 146,
+        "y": 0
+    },
+    "p3_walk04": {
+        "height": 97,
+        "width": 72,
+        "x": 0,
+        "y": 98
+    },
+    "p3_walk05": {
+        "height": 97,
+        "width": 72,
+        "x": 73,
+        "y": 98
+    },
+    "p3_walk06": {
+        "height": 97,
+        "width": 72,
+        "x": 146,
+        "y": 98
+    },
+    "p3_walk07": {
+        "height": 97,
+        "width": 72,
+        "x": 219,
+        "y": 0
+    },
+    "p3_walk08": {
+        "height": 97,
+        "width": 72,
+        "x": 292,
+        "y": 0
+    },
+    "p3_walk09": {
+        "height": 97,
+        "width": 72,
+        "x": 219,
+        "y": 98
+    },
+    "p3_walk10": {
+        "height": 97,
+        "width": 72,
+        "x": 365,
+        "y": 0
+    },
+    "p3_walk11": {
+        "height": 97,
+        "width": 72,
+        "x": 292,
+        "y": 98
+    },
+    "pokerMad": {
+        "height": 146,
+        "width": 48,
+        "x": 255,
+        "y": 0
+    },
+    "pokerSad": {
+        "height": 146,
+        "width": 48,
+        "x": 304,
+        "y": 0
+    },
+    "slimeDead": {
+        "height": 12,
+        "width": 59,
+        "x": 0,
+        "y": 112
+    },
+    "slimeWalk1": {
+        "height": 28,
+        "width": 50,
+        "x": 52,
+        "y": 125
+    },
+    "slimeWalk2": {
+        "height": 26,
+        "width": 51,
+        "x": 0,
+        "y": 125
+    },
+    "snailShell": {
+        "height": 30,
+        "width": 44,
+        "x": 103,
+        "y": 119
+    },
+    "snailShell_upsidedown": {
+        "height": 30,
+        "width": 44,
+        "x": 148,
+        "y": 118
+    },
+    "snailWalk1": {
+        "height": 31,
+        "width": 54,
+        "x": 143,
+        "y": 34
+    },
+    "snailWalk2": {
+        "height": 31,
+        "width": 57,
+        "x": 67,
+        "y": 87
+    }
+}

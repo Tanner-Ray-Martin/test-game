@@ -20,6 +20,20 @@ def generate_list_of_clouds():
         clouds.append(cloud)
     return clouds
 
+def generate_list_of_players(groud_level:int):
+    num_players = 20
+    players:list[Player] = []
+    #create a number of players with random speed and jump power
+    for i in range(num_players):
+        player = Player(randint(10, 25), randint(1, 30))
+        player.rect.bottom = randint(int(groud_level/2), groud_level)
+        player.rect.x = randint(0, WINDOW_WIDTH-player.rect.width)
+        if player.rect.bottom < groud_level:
+            player.jumping = True
+        players.append(player)
+    return players
+
+
 def game_loop():
     running = True
     all_sprites = pygame.sprite.Group()
@@ -29,15 +43,10 @@ def game_loop():
     ground = Ground(WINDOW_WIDTH, WINDOW_HEIGHT, game_window)
     ground_top = ground.height
     #create a number of players with random speed and jump power
-    for i in range(num_players):
-        player = Player(randint(10, 25), randint(1, 30))
-        player.rect.bottom = randint(int(ground_top/2), ground_top)
-        player.rect.x = randint(0, WINDOW_WIDTH-player.rect.width)
-        if player.rect.bottom < ground_top:
-            player.jumping = True
-        all_sprites.add(player)
-        players.append(player)
+    players = generate_list_of_players(ground_top)
+    [all_sprites.add(player) for player in players]
     clock = Clock()
+
     while running:
         should_jump = False
 
@@ -52,18 +61,16 @@ def game_loop():
                 running = False
         #get the pressed keys, send them to the player move function, and update the player sprite
         pressed_keys = pygame.key.get_pressed()
-        for player in players:
-            player.move(pressed_keys, WINDOW_WIDTH, ground_top, should_jump)
-            player.update()
-        #fill the window, draw the sprites, update the window, and apply the frame rate limitation
-        
-        
-        #game_window.blit(bg_img, (0, 0))
         game_window.fill((204,243,247))
-        ground.update()
         for cloud in clouds:
             cloud.move(WINDOW_WIDTH)
             cloud.update(game_window)
+        for player in players:
+            player.move(pressed_keys, WINDOW_WIDTH, ground_top, should_jump)
+            player.update()
+            
+        ground.update()
+
         all_sprites.draw(game_window)
 
         pygame.display.flip()

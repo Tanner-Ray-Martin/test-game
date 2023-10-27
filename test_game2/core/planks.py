@@ -18,7 +18,6 @@ class Plank:
         self.rect = pygame.Rect(x, y, self.image.get_width(), self.image.get_height())
         self.velocity = [0, 1]
         
-
     def move(self):
         self.rect.x += self.velocity[0]
         self.rect.y += self.velocity[1]
