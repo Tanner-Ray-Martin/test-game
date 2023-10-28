@@ -1,5 +1,5 @@
 import pygame
-from random import choice
+from random import choice, randint
 import os
 import json
 from typing import Literal
@@ -30,28 +30,32 @@ class Player(pygame.sprite.Sprite):
             self.acceleration_increase[1] * -1,
         ]
         self._frames_data_to_frames_animation()
-        self.image: pygame.surface.Surface = self.animation_frames[self.frame_index]
-        self.rect = self.image.get_rect()
         self.jumping = False
         self.direction = 1
+        self.frame_index = randint(0, len(self.animation_frames)-1)
+        self.image: pygame.surface.Surface = self.animation_frames[self.frame_index]
+        self.rect = self.image.get_rect()
 
     def _frames_data_to_frames_animation(self):
         for frame_data in self.frames:
-            frame = self.spritesheet.subsurface(
-                pygame.Rect(
-                    frame_data.get("x"),
-                    frame_data.get("y"),
-                    frame_data.get("w"),
-                    frame_data.get("h"),
+            try:
+                frame = self.spritesheet.subsurface(
+                    pygame.Rect(
+                        frame_data.get("x"),
+                        frame_data.get("y"),
+                        frame_data.get("w"),
+                        frame_data.get("h"),
+                    )
                 )
-            )
-            self.animation_frames.append(frame)
+                self.animation_frames.append(frame)
+            except:
+                ...
 
     def get_image(self):
         if self.velocity[0] != 0:
             self.change_frame_index()
         else:
-            self.frame_index = 0
+            ...
         image = self.animation_frames[self.frame_index]
         if self.direction < 0:
             image = pygame.transform.flip(image, True, False)
@@ -59,7 +63,7 @@ class Player(pygame.sprite.Sprite):
 
     def change_frame_index(self):
         self.frame_index += 1
-        if self.frame_index >= len(self.frames):
+        if self.frame_index >= len(self.animation_frames):
             self.frame_index = 0
 
     def move_x(self, velocity:int):
