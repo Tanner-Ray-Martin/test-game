@@ -41,7 +41,7 @@ class Cloud(pygame.sprite.Sprite):
         self._frames_data_to_frames_animation()
         self.frame_index = randint(0, len(self.animation_frames)-1)
         self.image = self.animation_frames[self.frame_index]
-        self.velocity = [1,0]
+        self.velocity = [-1,0]
         self.velocity_counter = uniform(0.01, 0.99)
         y = randint(0, 200)
         w = self.image.get_width()
@@ -88,9 +88,9 @@ class Cloud(pygame.sprite.Sprite):
     def random_y(self):
         self.rect.y = randint(0, 200)
         if self.rect.y < 200:
-            self.velocity[0] = 2
+            self.velocity[0] = -2
         if self.rect.y < 150:
-            self.velocity[0] = 1
+            self.velocity[0] = -1
 
     def update(self):
         self.image = self.get_image()

@@ -10,7 +10,7 @@ game_window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 bg_path = r"C:\Users\tanner.martin\Desktop\test_game\test_game2\resources\ai_bg.png"
 bg_img = pygame.image.load(bg_path).convert()
 bg_img = pygame.transform.scale(bg_img, game_window.get_size())
-
+bg_img2 = pygame.transform.flip(bg_img, True, False)
 def generate_list_of_clouds():
     num_clouds = 30
     clouds:list[Cloud] = []
@@ -21,7 +21,7 @@ def generate_list_of_clouds():
     return clouds
 
 def generate_list_of_players(groud_level:int):
-    num_players = 20
+    num_players = 2000
     players:list[Player] = []
     #create a number of players with random speed and jump power
     for i in range(num_players):
@@ -65,28 +65,20 @@ def game_loop():
         #get the pressed keys, send them to the player move function, and update the player sprite
         pressed_keys = pygame.key.get_pressed()
         game_window.blit(bg_img, (bg_x, bg_y))
-        game_window.blit(bg_img, (bg_x-WINDOW_WIDTH, bg_y))
-        game_window.blit(bg_img, (bg_x+WINDOW_WIDTH, bg_y))
-        
+        game_window.blit(bg_img2, (bg_x-WINDOW_WIDTH, bg_y))
+        game_window.blit(bg_img2, (bg_x+WINDOW_WIDTH, bg_y))
+        bg_x += 1
+        if bg_x >= WINDOW_WIDTH:
+            bg_x = 0-WINDOW_WIDTH
         for cloud in clouds:
             cloud.move(WINDOW_WIDTH)
             cloud.update()
         for player in players:
             player.move(pressed_keys, WINDOW_WIDTH, ground_top, should_jump)
-            if player.velocity[0] < 0:
-                bg_x_v = 1
-                if bg_x == 0-WINDOW_WIDTH or bg_x==WINDOW_WIDTH:
-                    bg_x = 0
-            elif player.velocity[0] > 0:
-                bg_x_v = -1
-            else:
-                bg_x_v = 0
             player.update()
-        bg_x += bg_x_v
-        ground.update()
 
         all_sprites.draw(game_window)
-
+        ground.update()
         pygame.display.flip()
         clock.tick(30)
 

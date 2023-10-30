@@ -5,7 +5,7 @@ import json
 from typing import Literal
 
 # Player Image constants and settings
-PLAYER_DIR = r"C:\Users\tanner.martin\Desktop\test_game\test_game2\resources\Player"
+PLAYER_DIR = r"C:\Users\tanner.martin\Desktop\test_game\test_game2\resources\pokemon"
 AVAILABLE_PLAYER_PREFIXES = ["p1", "p2", "p3"]
 AVAILABLE_PLAYER_POSTFIXES = ["walk"]
 PRE_POST_SEPERATOR = "_"
@@ -14,8 +14,8 @@ PRE_POST_SEPERATOR = "_"
 class Player(pygame.sprite.Sprite):
     def __init__(self, gravity:int=10, speed:int=10):
         super().__init__()
-        self.spritesheet, self.frames = generate_player_spritesheet_and_frames()
-        self.animation_frames: list[pygame.surface.Surface] = []
+        self.spritesheet = generate_random_pokemon_spritesheet()
+        self.animation_frames = self.generate_frames()
         self.frame_index = 0
         # physics
         self.velocity = [0, 0]
@@ -29,13 +29,28 @@ class Player(pygame.sprite.Sprite):
             self.acceleration_increase[0] * -1,
             self.acceleration_increase[1] * -1,
         ]
-        self._frames_data_to_frames_animation()
         self.jumping = False
         self.direction = 1
         self.frame_index = randint(0, len(self.animation_frames)-1)
         self.image: pygame.surface.Surface = self.animation_frames[self.frame_index]
         self.rect = self.image.get_rect()
 
+    def generate_frames(self):
+        ss_width = self.spritesheet.get_width()
+        ss_height = self.spritesheet.get_height()
+        frame_width = int(ss_width/4)
+        frame_height = int(ss_height/4)
+        frame_x = 0
+        frame_y = 0
+        frames:list[pygame.surface.Surface] = []
+        for row in range(4):
+            frame_x = 0
+            for column in range(4):
+                frames.append(self.spritesheet.subsurface(pygame.Rect(frame_x, frame_y, frame_width, frame_height)))
+                frame_x += frame_width
+            frame_y += frame_height
+        return frames
+            
     def _frames_data_to_frames_animation(self):
         for frame_data in self.frames:
             try:
@@ -52,19 +67,23 @@ class Player(pygame.sprite.Sprite):
                 ...
 
     def get_image(self):
-        if self.velocity[0] != 0:
-            self.change_frame_index()
-        else:
-            ...
         image = self.animation_frames[self.frame_index]
-        if self.direction < 0:
-            image = pygame.transform.flip(image, True, False)
         return image
 
     def change_frame_index(self):
         self.frame_index += 1
-        if self.frame_index >= len(self.animation_frames):
-            self.frame_index = 0
+        if self.velocity[0] < 0:
+            if self.frame_index > 7:
+                self.frame_index = 4
+        elif self.velocity[0] > 0:
+            if self.frame_index > 11:
+                self.frame_index = 8
+        else:
+            if self.frame_index > 3:
+                self.frame_index = 0
+
+
+        #print(self.frame_index, self.velocity)
 
     def move_x(self, velocity:int):
         if velocity != 0:
@@ -117,15 +136,13 @@ class Player(pygame.sprite.Sprite):
             self.move_x(0)
         if jump:
             self.jump()
-
         self.move_y()
         self.wall_bounce(ww)
         self.land(wh)
-
-        self.image = self.get_image()
         self.rect.move_ip(self.velocity)
 
     def update(self):
+        self.change_frame_index()
         self.image = self.get_image()
         self.rect.move_ip(self.velocity)
 
@@ -180,3 +197,16 @@ def generate_player_spritesheet_and_frames(
         ...
     return spritesheet, frames
 
+def generate_random_pokemon_spritesheet():
+    img_name = choice(os.listdir(PLAYER_DIR))
+    img_path = os.path.join(PLAYER_DIR, img_name)
+    sprite_sheet = pygame.image.load(img_path)
+    try:
+        sprite_sheet = sprite_sheet.convert_alpha()
+    except:
+        print(img_name)
+        try:
+            sprite_sheet = sprite_sheet.convert()
+        except:
+            ...
+    return sprite_sheet
